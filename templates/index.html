@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+
+  {% block content %}
+      {% if user.is_authenticated %}
+      {% for veri in Deneme %}
+        {{ veri.ad }}
+    {% endfor %}
+
+
+      {% else %}
+      <p>Giriş Yapınız</p>
+      {% endif %}
+
+
+    {% endblock %}
