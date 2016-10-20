@@ -1,1 +1,2 @@
-deneme
+
+Python - Django Training
