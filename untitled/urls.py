@@ -19,8 +19,7 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
-from django.views.generic.base import TemplateView
-from deneme.views import index
+from deneme.views import index,register
 
 urlpatterns = [
 
@@ -28,5 +27,6 @@ urlpatterns = [
     url(r'^logout/$', auth_views.logout, {'template_name': 'logged_out.html'}, name='logout'),
     url(r'^admin/', admin.site.urls),
     url(r'^index$',index, name='index'),
+    url(r'^register/$',register,name='register'),
 
 ]
