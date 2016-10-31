@@ -2,7 +2,14 @@
 
 
   {% block content %}
+
       {% if user.is_authenticated %}
+       {% for i in Konu %}
+           <p>  <a href="{{ i.get_absolute_url }}"> {{ i.title }} </a><br>
+          <small>{{ i.writer }}</small>
+           {{ i.likes.count }}</p>
+
+          {% endfor %}
       {% for veri in Deneme %}
         {{ veri.ad }}
     {% endfor %}
