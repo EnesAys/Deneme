@@ -13,6 +13,24 @@
         <a id="like" href="{% url "like_place" Konu.id %}">Beğen</a>
         {% endif %}
     </p>
+
+     {% if Konu.review_count > 0 %}
+        <h3>Reviews</h3>
+        {% for review in Konu.review_set.all %}
+        <blockquote>
+            {{ review.comment }}
+            ({{ review.vote }})
+            <small>
+                {{ review.user.username }}
+            </small>
+        </blockquote>
+        {% endfor %}
+    {% endif %}
+
+       <p>
+        <a href="{% url "new_review" Konu.id %}">Yorum ekle</a>
+    </p>
+
         <script>
 
 $('#like').on('click', function (event) {
