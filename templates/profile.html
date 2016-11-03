@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+   <p>{{ user.username }}</p>
+    {{ user.last_name }}<br>
+
+    {% for review in user.review_set.all %}
+    {{ review.konu  }}
+        {{ review.vote  }}
+
+    {{ review.comment  }}<br>
+
+    {% endfor %}
+{% endblock %}

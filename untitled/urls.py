@@ -19,7 +19,7 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
-from deneme.views import index,register ,detail ,like_place,new_review
+from deneme.views import index,register ,detail ,like_place,new_review,profile
 
 urlpatterns = [
 
@@ -31,5 +31,6 @@ urlpatterns = [
     url(r'^konu/(?P<id>\d+)$', detail, name='konu_detail'),
     url(r'^konu/(?P<konu_id>\d+)/like$', like_place, name='like_place'),
     url(r'^konu/(?P<konu_id>\d+)/new_review$', new_review, name='new_review'),
+    url(r'^profile/(?P<id>\d+)$', profile, name='profile'),
 
 ]

@@ -1,10 +1,11 @@
 import json
-from deneme.models import Deneme ,Konu
+from deneme.models import Deneme ,Konu ,Review
 from django.shortcuts import render , redirect,get_object_or_404
 from deneme.forms import RegistrationForm,ReviewCreationForm
 from django.contrib import messages
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 
 def register(request):
 	form = RegistrationForm()
@@ -88,3 +89,14 @@ def new_review(request, konu_id):
             'form': form,
         }
     )
+
+@login_required(login_url='login')
+def profile(request,id):
+	return render(
+		request,
+		'profile.html',
+		{
+			'user': get_object_or_404(User, id=id),
+			'review': get_object_or_404(Review, id=id),
+		}
+	)
